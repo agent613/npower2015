@@ -4,7 +4,7 @@ var songs = [
 ];
 
 var searchSongs = function(searchText){
-	return songs.filter(function(song){return song.title.match(searchText);});	
+	return songs.filter(function(song){return song.title.toLowerCase().match(searchText.toLowerCase());});	
 };
 
 var restify = require('restify');
