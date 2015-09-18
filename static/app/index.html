@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="Demo">
+
+<body>
+<script src="app/angular.min.js"></script>
+
+<h2>My Music Library</h2>
+
+<div ng-controller="songController">
+ 	<p>Search for a Song: <input type="text" ng-model="search"></p>
+ 	
+ 	<table border="1">
+ 		<tr>
+ 			<th>Title</th>
+ 			<th>Artist</th>
+ 		</tr>
+
+ 		<tr ng-repeat="song in library">
+ 			<td>{{song.title}}</td>
+ 			<td>{{song.artist}}</td>
+ 		</tr>
+ 		
+ 	</table>
+</div>
+
+<script>
+	var app = angular.module( "Demo", [] );
+	app.controller("songController", 
+		function songController($scope, $http) {
+			$scope.$watch("search", function(newValue, oldValue) {
+			     getData($scope, $http, newValue);
+			});
+			getData($scope, $http)
+		}
+	);
+	function getData($scope, $http, text){
+		$http.get("/mytunes/" + text)
+		.success(function(response) {$scope.library = response;})
+		.error(function(response) {alert("fail: " + response)});
+	}
+
+	
+</script>
+		
+</body>
+</html>
