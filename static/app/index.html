@@ -15,10 +15,10 @@
  			<th>Artist</th>
  		</tr>
 
- 		<!--<tr ng-repeat="song in library">
+ 		<tr ng-repeat="song in library">
  			<td>{{song.title}}</td>
  			<td>{{song.artist}}</td>
- 		</tr>-->
+ 		</tr>
  		
  	</table>
 </div>
@@ -34,9 +34,9 @@
 		}
 	);
 	function getData($scope, $http, text){
-		//$http.get("/mytunes/" + text)
-		//.success(function(response) {$scope.library = response;})
-		//.error(function(response) {alert("fail: " + response)});
+		$http.get("/mytunes/" + text)
+		.success(function(response) {$scope.library = response;})
+		.error(function(response) {alert("fail: " + response)});
 	}
 
 	
