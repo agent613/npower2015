@@ -15,9 +15,10 @@ function respond(req, res, next) {
   next();
 }
 
-var songs = [ { title: "Can't buy me love", artist: "The Beatles"}, {title: "Can't Feel my Face", artist: "The Weeknd"}, {title: "Hotel California", artist: "Eagles"}]
+var songs = [{title: "Can't buy me love", artist: "Beatles"}, {title:"Can't feel my face", artist: "Weeknd"}, {title: "Back 2 Back", artist: "Drake"},{title: "Stay Schemin",artist:"Drake"}];
 
-var searchSongs = function(searchText){ return songs.filter(function(song){ return song.title.toLowerCase().match(searchText.toLowerCase()) })};
+var searchSongs = function(searchText){return songs.filter(function(song){return song.title.toLowerCase().match(searchText.toLowerCase())})
+};
 
 
 
@@ -35,14 +36,8 @@ server.get(/\/app\/?.*/, restify.serveStatic({
 
 
 
+/*
+var songs = [ { title: "Can't buy me love", artist: "The Beatles"}, {title: "Can't Feel my Face", artist: "The Weeknd"}, {title: "Hotel California", artist: "Eagles"}]
 
-
-
-/*var songs = [
-	{title: "Can't buy me love", artist: "Beatles"},
-	{title: "Hotel California", artist: "Eagles"}
-];
-
-var searchSongs = function(searchText){
-	return songs.filter(function(song){return song.title.toLowerCase().match(searchText.toLowerCase());});	
-};*/
+var searchSongs = function(searchText){ return songs.filter(function(song){ return song.title.toLowerCase().match(searchText.toLowerCase()) })};
+*/
