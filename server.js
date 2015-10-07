@@ -15,10 +15,12 @@ function respond(req, res, next) {
   next();
 }
 
-var songs = [{title: "Can't buy me love", artist: "Beatles"}, {title:"Can't feel my face", artist: "Weeknd"}, {title: "Back 2 Back", artist: "Drake"},{title: "Stay Schemin",artist:"Drake"}];
 
-var searchSongs = function(searchText){return songs.filter(function(song){return song.title.toLowerCase().match(searchText.toLowerCase())})
-};
+var songs = [{title: "Can't buy me love", artist: "Beatles"},{title: "Can't feel my face", artist:"Weeknd"},{title:"Happy",artist: "Pharell Williams"},{title: "The Boss",artist: "James Brown"}];
+
+var searchSongs = function(searchText){return songs.filter(function(song){return song.title.toLowerCase().match(searchText.toLowerCase())})}
+
+
 
 
 
